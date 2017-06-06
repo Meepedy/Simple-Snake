@@ -53,6 +53,7 @@ function game() {
         ctx.fillRect(trail[i].x * gridSize, trail[i].y * gridSize, gridSize - 2, gridSize - 2);
         if (trail[i].x == playerX && trail[i].y == playerY) {
             tail = 5;
+            score = 0;
         }
     }
     trail.push({
