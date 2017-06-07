@@ -67,7 +67,7 @@ function game() {
     if (appleX == playerX && appleY == playerY) {
         tail++;
         score++;
-        document.getElementById("score").innerHTML = "Score: " + score;
+        document.getElementById("score").innerText = "Score: " + score;
 
         appleX = Math.floor(Math.random() * tileCount);
         appleY = Math.floor(Math.random() * tileCount);
