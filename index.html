@@ -11,9 +11,9 @@
 
 <script>
 window.onload = function () {
-    canv = document.getElementById("gameCanvas");
-    context = canv.getContext("2d");
-    document.addEventListener("keydown", keyPush);
+    canv = document.getElementById('gameCanvas');
+    context = canv.getContext('2d');
+    document.addEventListener('keydown', keyPush);
     setInterval(game, 1000 / 15);
 }
 
@@ -33,22 +33,22 @@ function game() {
     playerX += xVelocity;
     playerY += yVelocity;
     if (playerX < 0) {
-        playerX = tileCount - 1;
+        restart();
     }
     if (playerX > tileCount - 1) {
-        playerX = 0;
+        restart();
     }
     if (playerY < 0) {
-        playerY = tileCount - 1;
+        restart();
     }
     if (playerY > tileCount - 1) {
-        playerY = 0;
+        restart();
     }
 
-    context.fillStyle = "#71C5CF";
+    context.fillStyle = '#71C5CF';
     context.fillRect(0, 0, canv.width, canv.height);
 
-    context.fillStyle = "#74BF2E";
+    context.fillStyle = '#74BF2E';
     for (var i = 0; i < trail.length; i++) {
         context.fillRect(trail[i].x * gridSize, trail[i].y * gridSize, gridSize - 2, gridSize - 2);
         if (trail[i].x == playerX && trail[i].y == playerY) {
@@ -66,12 +66,12 @@ function game() {
     if (appleX == playerX && appleY == playerY) {
         tail++;
         score++;
-        document.getElementById("score").innerText = "Score: " + score;
+        document.getElementById('score').innerText = 'Score: ' + score;
 
         appleX = Math.floor(Math.random() * tileCount);
         appleY = Math.floor(Math.random() * tileCount);
     }
-    context.fillStyle = "#FF6A00";
+    context.fillStyle = '#FF6A00';
     context.fillRect(appleX * gridSize, appleY * gridSize, gridSize - 2, gridSize - 2);
 }
 
