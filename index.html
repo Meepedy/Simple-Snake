@@ -52,8 +52,7 @@ function game() {
     for (var i = 0; i < trail.length; i++) {
         context.fillRect(trail[i].x * gridSize, trail[i].y * gridSize, gridSize - 2, gridSize - 2);
         if (trail[i].x == playerX && trail[i].y == playerY) {
-            tail = 5;
-            score = 0;
+          restart();
         }
     }
     trail.push({
@@ -96,5 +95,13 @@ function keyPush(evt) {
         yVelocity = 1;
         break;
     }
+}
+
+function restart(){
+  playerX = 10;
+  playerY = 10;
+  tail = 5;
+  score = 0
+  document.getElementById('score').innerText = 'Score: ' + score;
 }
 </script>
