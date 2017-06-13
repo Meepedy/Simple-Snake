@@ -1,107 +1,28 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-      <title>Snake Game</title>
+      <title>Snake Snake game</title>
+      <link rel="stylesheet" type="text/css" href="styles.css">
     </head>
-    <body onload="load()">
-        <h2><span id="score">Score: 0</span></h2>
-        <canvas id="gameCanvas" width="400" height="400"></canvas>
+    <body>
+      <div class="wrapper">
+
+        <header>
+          <h1>Simple Snake</h1>
+        </header>
+        <section class="column-container">
+          <div class="first-column">
+            <h2><span id="score">Score: 0</span></h2>
+            <canvas id="gameCanvas" width="400" height="400"></canvas>
+            <p>
+              Simple snake is of course a simple snake game for those who just want to enjoy a great classic. Use WASD or Arrow keys to move.
+            </p>
+          </div>
+        </section>
+        <footer>
+          Created by David Becker
+        </footer>
+      </div>
+      <script src="app.js"></script>
     </body>
 </html>
-
-<script>
-window.onload = function () {
-    canv = document.getElementById('gameCanvas');
-    context = canv.getContext('2d');
-    document.addEventListener('keydown', keyPush);
-    setInterval(game, 1000 / 15);
-}
-
-playerX = 10;
-playerY = 10;
-gridSize = 20;
-tileCount = 20;
-appleX = 15;
-appleY = 15;
-xVelocity = 0;
-yVelocity = 0;
-trail = [];
-tail = 5;
-score = 0;
-
-function game() {
-    playerX += xVelocity;
-    playerY += yVelocity;
-    if (playerX < 0) {
-        restart();
-    }
-    if (playerX > tileCount - 1) {
-        restart();
-    }
-    if (playerY < 0) {
-        restart();
-    }
-    if (playerY > tileCount - 1) {
-        restart();
-    }
-
-    context.fillStyle = '#71C5CF';
-    context.fillRect(0, 0, canv.width, canv.height);
-
-    context.fillStyle = '#74BF2E';
-    for (var i = 0; i < trail.length; i++) {
-        context.fillRect(trail[i].x * gridSize, trail[i].y * gridSize, gridSize - 2, gridSize - 2);
-        if (trail[i].x == playerX && trail[i].y == playerY) {
-          restart();
-        }
-    }
-    trail.push({
-        x: playerX,
-        y: playerY
-    });
-    while (trail.length > tail) {
-        trail.shift();
-    }
-
-    if (appleX == playerX && appleY == playerY) {
-        tail++;
-        score++;
-        document.getElementById('score').innerText = 'Score: ' + score;
-
-        appleX = Math.floor(Math.random() * tileCount);
-        appleY = Math.floor(Math.random() * tileCount);
-    }
-    context.fillStyle = '#FF6A00';
-    context.fillRect(appleX * gridSize, appleY * gridSize, gridSize - 2, gridSize - 2);
-}
-
-function keyPush(evt) {
-    switch (evt.keyCode) {
-        //WASD key movements
-    case 65:
-        xVelocity = -1;
-        yVelocity = 0;
-        break;
-    case 87:
-        xVelocity = 0;
-        yVelocity = -1;
-        break;
-    case 68:
-        xVelocity = 1;
-        yVelocity = 0;
-        break;
-    case 83:
-        xVelocity = 0;
-        yVelocity = 1;
-        break;
-    }
-}
-
-function restart(){
-  playerX = 10;
-  playerY = 10;
-  tail = 5;
-  score = 0
-  document.getElementById('score').innerText = 'Score: ' + score;
-}
-</script>

@@ -1,0 +1,85 @@
+body {
+  color: #666;
+  background: grey;
+}
+.wrapper {
+  padding: 5px;
+  width: 960px;
+  margin: 20px auto;
+  background: #fff;
+}
+header {
+  padding: 15px 15px;
+  text-align: center;
+}
+header img {
+  width: 20%;
+  height: 20%;
+}
+header h1 {
+  font-size: 50px;
+  margin: 0px;
+}
+header p {
+  margin: 0px;
+}
+nav {
+  text-align: center;
+}
+nav ul {
+ padding: 0px;
+}
+nav ul li {
+  display: inline;
+  padding-right: 10px;
+}
+nav ul li {
+
+}
+.btn {
+  -webkit-border-radius: 6;
+  -moz-border-radius: 6;
+  border-radius: 6px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 15px;
+  background: #666;
+  padding: 10px 10px 10px 10px;
+  text-decoration: none;
+  display: inline;
+}
+.btn a {
+  color: #fff;
+  text-decoration: none;
+}
+.column-container {
+  display: table;
+  width: auto;
+}
+.first-column {
+  width: 33%;
+  padding: 5px 15px;
+  background: #E5E5E5;
+  display: table-cell;
+  text-align: center;
+}
+.second-column {
+  width: 33%;
+  padding: 5px 15px;
+  margin: 0px 5px 5px 5px;
+  display: table-cell;
+}
+footer{
+  clear: both;
+  padding: 15px 15px;
+  text-align: center;
+}
+header, nav, .column-container{
+  margin-bottom: 5px;
+}
+.wrapper, header, nav, .first-column, .second-column, .third-column, footer{
+  border: solid 3px #ccc;
+}
+.answer{
+  display: none;
+}
