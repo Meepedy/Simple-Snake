@@ -62,7 +62,7 @@ function game() {
     appleX = Math.floor(Math.random() * tileCount);
     appleY = Math.floor(Math.random() * tileCount);
   }
-  context.fillStyle = '#EFEFEF';
+  context.fillStyle = '#F2F2F2';
   context.fillRect(appleX * gridSize, appleY * gridSize, gridSize - 2, gridSize - 2);
 }
 
