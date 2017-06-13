@@ -70,18 +70,30 @@ function keyPush(evt) {
     switch (evt.keyCode) {
         //WASD key movements
     case 65:
+        if(xVelocity === 1){
+          return;
+        }
         xVelocity = -1;
         yVelocity = 0;
         break;
     case 87:
+      if(yVelocity === 1){
+        return;
+      }
         xVelocity = 0;
         yVelocity = -1;
         break;
     case 68:
+      if(xVelocity === -1){
+        return;
+      }
         xVelocity = 1;
         yVelocity = 0;
         break;
     case 83:
+      if(yVelocity === -1){
+        return;
+      }
         xVelocity = 0;
         yVelocity = 1;
         break;
