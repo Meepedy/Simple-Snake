@@ -1,11 +1,28 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-      <title>Snake Game</title>
+      <title>Snake Snake game</title>
+      <link rel="stylesheet" type="text/css" href="styles.css">
     </head>
-    <body onload="load()">
-        <h2><span id="score">Score: 0</span></h2>
-        <canvas id="gameCanvas" width="400" height="400"></canvas>
+    <body>
+      <div class="wrapper">
+
+        <header>
+          <h1>Simple Snake</h1>
+        </header>
+        <section class="column-container">
+          <div class="first-column">
+            <h2><span id="score">Score: 0</span></h2>
+            <canvas id="gameCanvas" width="400" height="400"></canvas>
+            <p>
+              Simple snake is of course a simple snake game for those who just want to enjoy a great classic. Use WASD or Arrow keys to move.
+            </p>
+          </div>
+        </section>
+        <footer>
+          Created by David Becker
+        </footer>
+      </div>
     </body>
 </html>
 
@@ -45,10 +62,10 @@ function game() {
         restart();
     }
 
-    context.fillStyle = '#71C5CF';
+    context.fillStyle = '#C6C6C6';
     context.fillRect(0, 0, canv.width, canv.height);
 
-    context.fillStyle = '#74BF2E';
+    context.fillStyle = '#666';
     for (var i = 0; i < trail.length; i++) {
         context.fillRect(trail[i].x * gridSize, trail[i].y * gridSize, gridSize - 2, gridSize - 2);
         if (trail[i].x == playerX && trail[i].y == playerY) {
@@ -71,7 +88,7 @@ function game() {
         appleX = Math.floor(Math.random() * tileCount);
         appleY = Math.floor(Math.random() * tileCount);
     }
-    context.fillStyle = '#FF6A00';
+    context.fillStyle = '#EFEFEF';
     context.fillRect(appleX * gridSize, appleY * gridSize, gridSize - 2, gridSize - 2);
 }
 
