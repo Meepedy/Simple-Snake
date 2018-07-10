@@ -17,6 +17,7 @@ var yVelocity = 0;
 var trail = [];
 var tail = 5;
 var score = 0;
+let highscore = 0;
 
 function game() {
   var canv = document.getElementById('gameCanvas');
@@ -101,9 +102,19 @@ function keyPush(evt) {
 }
 
 function restart(){
+  if(score > highscore) {
+    highscore = score; 
+    localStorage['highScore'] = highscore;
+  }
   playerX = 10;
   playerY = 10;
   tail = 5;
   score = 0
   document.getElementById('score').innerText = 'Score: ' + score;
+  if(localStorage['highScore'] != null) {
+    document.getElementById('highScore').innerText = 'High Score: ' + localStorage['highScore'];
+  } else {
+    return
+  }
 }
+
